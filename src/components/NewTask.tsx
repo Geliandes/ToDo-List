@@ -31,15 +31,22 @@ export function NewTask(){
 
         setTasks(tasksWhithoutDeletedeOne);
         setNumberOfTasksCreated(numberOfTasksCreated - 1);
-        checkTask(event)
+        
+        let trashId = event.target.id;
+        let taskId = event.target.parentNode.firstChild.firstChild.id
+        let taskChecked = event.target.parentNode.firstChild.firstChild.checked
+
+        trashId === taskId && taskChecked === true? removeCheckListCompleted(true) : removeCheckListCompleted(false)
     }
 
     function checkTask(event: any){
         let task = event.target.checked
-        let checkboxId = event.target.id
-        let trashId = event.target.parentNode.parentNode.firstChild.firstChild.id
 
-        checkboxId === trashId && task == true ? setNumberOfTasksCheked(numberOfTasksChecked + 1) : setNumberOfTasksCheked(numberOfTasksChecked - 1)
+        task ? setNumberOfTasksCheked(numberOfTasksChecked + 1) : setNumberOfTasksCheked(numberOfTasksChecked - 1)
+    }
+
+    function removeCheckListCompleted(checked:boolean) {
+        checked ? setNumberOfTasksCheked(numberOfTasksChecked - 1) : null
     }
 
     return (
