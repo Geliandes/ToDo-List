@@ -49,6 +49,9 @@ export function NewTask(){
         checked ? setNumberOfTasksCheked(numberOfTasksChecked - 1) : null
     }
 
+
+    
+
     return (
         <div>
             <form className={Styles.newTaskBlock} id="newTask" method="post" onSubmit={handleCreateNewTask}>
@@ -68,7 +71,7 @@ export function NewTask(){
 
                 <div className={Styles.completedTasks}>
                     <p>Concluídas</p>
-                    <span>{numberOfTasksChecked} de {numberOfTasksCreated}</span>
+                    {numberOfTasksCreated < 1 ? (<span>{numberOfTasksCreated}</span>) : <span>{numberOfTasksChecked} de {numberOfTasksCreated}</span>}
                 </div>
                 </div>
             </div>
