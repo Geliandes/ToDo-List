@@ -49,9 +49,6 @@ export function NewTask(){
         checked ? setNumberOfTasksCheked(numberOfTasksChecked - 1) : null
     }
 
-
-    
-
     return (
         <div>
             <form className={Styles.newTaskBlock} id="newTask" method="post" onSubmit={handleCreateNewTask}>
@@ -76,20 +73,19 @@ export function NewTask(){
                 </div>
             </div>
 
-        {tasks.length > 0 ? (
-            <div className={Styles.tasksContainerMain}>
-                {tasks.map((task: string) => {
-                    return (
-                    <Tasks 
-                        content={task}
-                        key={task}
-                        onDeleteTask = {deleteTask}
-                        onCheckTask = {checkTask}
-                    />)
-                })}
-            </div>
-        ) : <ListTasksEmpty />}
-        
+            {tasks.length > 0 ? (
+                <div className={Styles.tasksContainerMain}>
+                    {tasks.map((task: string) => {
+                        return (
+                        <Tasks 
+                            content={task}
+                            key={task}
+                            onDeleteTask = {deleteTask}
+                            onCheckTask = {checkTask}
+                        />)
+                    })}
+                </div>
+            ) : <ListTasksEmpty />}
         </div>
     )
 }
