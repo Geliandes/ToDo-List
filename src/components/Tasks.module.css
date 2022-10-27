@@ -1,0 +1,100 @@
+.taskContainer {
+  background: var(--gray-500);
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.containerInput{
+  display: flex;
+  align-items: center;
+}
+
+.containerCheckbox {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  cursor: pointer;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.taskContainer{
+  margin-top: 2rem;
+}
+
+.taskContainer:nth-last-child(){
+  margin-bottom: 10rem;
+}
+
+.taskText{
+  color: white;
+  font-size: 0.875rem;
+}
+
+.containerCheckbox input {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  border: 3px solid var(--blue-300);
+  margin-right: 0.75rem;
+}
+
+.checkmark:hover{
+  background: var(--blue-600)
+}
+
+.containerCheckbox input:checked ~ .checkmark {
+  background-color: var(--purple-600);
+  border: 3px solid var(--purple-600);
+}
+
+.containerCheckbox input:checked ~ .checkmark:hover {
+  background-color: var(--purple-300);
+  border: 3px solid var(--purple-300);
+}
+
+input:checked ~ .checkmark:after {
+  content: "";
+  display: inline-block;
+  background-image: url("../src/assets/check-bold.png");
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+input:checked ~ .taskText {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.deleteTask {
+  background: none;
+  display: flex;
+  border: none;
+  color: var(--gray-300);
+  cursor: pointer;
+}
+
+.deleteTask:hover {
+  color: var(--red-500);
+}
+
+.checkboxChecked{
+  text-decoration: line-through;
+}
+
+.trash{
+  pointer-events: none;
+}
